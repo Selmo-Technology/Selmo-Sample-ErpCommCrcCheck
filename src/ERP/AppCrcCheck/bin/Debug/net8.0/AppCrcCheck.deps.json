@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AppCrcCheck/1.0.0": {
+        "dependencies": {
+          "Nito.HashAlgorithms.CRC": "1.0.1"
+        },
+        "runtime": {
+          "AppCrcCheck.dll": {}
+        }
+      },
+      "Nito.HashAlgorithms.Core/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.Core.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
+      },
+      "Nito.HashAlgorithms.CRC/1.0.1": {
+        "dependencies": {
+          "Nito.HashAlgorithms.Core": "1.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.CRC.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AppCrcCheck/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nito.HashAlgorithms.Core/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N84WZqOiKhkSQh/y9e2UKjhl2ssVYzTzmK0ju2YBdbAYNuM6e8SXS60mZmqU7JlP4sDnfDl//a3nXobOaoIBOA==",
+      "path": "nito.hashalgorithms.core/1.0.1",
+      "hashPath": "nito.hashalgorithms.core.1.0.1.nupkg.sha512"
+    },
+    "Nito.HashAlgorithms.CRC/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5Aup7kTby/D58wLuSO7jlEFfdvlJrZjlobOOqW7RmFUHo4/835jENuaHQRP0QVdnHSQU3YGjr6TZaWbgOy61Cw==",
+      "path": "nito.hashalgorithms.crc/1.0.1",
+      "hashPath": "nito.hashalgorithms.crc.1.0.1.nupkg.sha512"
+    }
+  }
+}

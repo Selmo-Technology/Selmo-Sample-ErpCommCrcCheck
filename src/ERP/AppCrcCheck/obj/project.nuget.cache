@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HCusDF95cbU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ChristophWider\\Documents\\GitHub\\Selmo-Sample-ErpCommCrcCheck\\src\\ERP\\AppCrcCheck\\AppCrcCheck.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ChristophWider\\.nuget\\packages\\nito.hashalgorithms.core\\1.0.1\\nito.hashalgorithms.core.1.0.1.nupkg.sha512",
+    "C:\\Users\\ChristophWider\\.nuget\\packages\\nito.hashalgorithms.crc\\1.0.1\\nito.hashalgorithms.crc.1.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

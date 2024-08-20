@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{1bc30b45-ccba-4d7a-aa9e-c613606fea2d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	// ######## ERP DATA ##################
+	stRecipe_ERP     	: MyRecipe;              // The recipe data from the ERP system
+	dwCrc_ERP			: DWORD;			 	 // CRC32 which is calculated and written by ERP system
+	
+	// ######## LOCAL #####################
+    byteArray    		: ARRAY[0..255] OF BYTE; // BYTE array to store the result
+	dwChecksum			: DWORD;				 // CRC32 Result
+	dwCrc_ERP_cached		: DWORD;			 // CRC32 which is calculated and written by ERP system
+	xCrcOK				: BOOL;					 // Data is OK
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Wait for changes on ERP_CRC
+IF dwCrc_ERP <> dwCrc_ERP_cached THEN
+	dwCrc_ERP_cached := dwCrc_ERP;
+	xCrcOK := FALSE;
+	
+	// Copy STRUCT to BYTE array
+	MEMCPY(ADR(byteArray), ADR(stRecipe_ERP), SIZEOF(stRecipe_ERP));
+	
+	// CAlculate the CRC32
+	dwChecksum := CRC_GEN(
+		PT:= ADR (byteArray), 
+		SIZE:= UINT_TO_INT(SIZEOF(stRecipe_ERP)), 
+		PL:= 32, 
+		PN:= 16#04C11DB7, 
+		INIT:= 16#FFFFFFFF, 
+		REV_IN:= TRUE, 
+		REV_OUT:= TRUE, 
+		XOR_OUT:= 0);
+
+	// Check if CRC is OK
+	IF dwCrc_ERP = dwChecksum THEN
+		xCrcOK := TRUE;
+	END_IF
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="15" Count="22" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="38" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

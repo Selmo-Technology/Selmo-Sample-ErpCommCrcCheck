@@ -1,0 +1,159 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Nito.HashAlgorithms.Core/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Nito.HashAlgorithms.CRC/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Nito.HashAlgorithms.Core": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.CRC.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Nito.HashAlgorithms.CRC.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Nito.HashAlgorithms.Core/1.0.1": {
+      "sha512": "N84WZqOiKhkSQh/y9e2UKjhl2ssVYzTzmK0ju2YBdbAYNuM6e8SXS60mZmqU7JlP4sDnfDl//a3nXobOaoIBOA==",
+      "type": "package",
+      "path": "nito.hashalgorithms.core/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net461/Nito.HashAlgorithms.Core.dll",
+        "lib/net461/Nito.HashAlgorithms.Core.xml",
+        "lib/netstandard1.3/Nito.HashAlgorithms.Core.dll",
+        "lib/netstandard1.3/Nito.HashAlgorithms.Core.xml",
+        "lib/netstandard2.0/Nito.HashAlgorithms.Core.dll",
+        "lib/netstandard2.0/Nito.HashAlgorithms.Core.xml",
+        "lib/netstandard2.1/Nito.HashAlgorithms.Core.dll",
+        "lib/netstandard2.1/Nito.HashAlgorithms.Core.xml",
+        "nito.hashalgorithms.core.1.0.1.nupkg.sha512",
+        "nito.hashalgorithms.core.nuspec"
+      ]
+    },
+    "Nito.HashAlgorithms.CRC/1.0.1": {
+      "sha512": "5Aup7kTby/D58wLuSO7jlEFfdvlJrZjlobOOqW7RmFUHo4/835jENuaHQRP0QVdnHSQU3YGjr6TZaWbgOy61Cw==",
+      "type": "package",
+      "path": "nito.hashalgorithms.crc/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net461/Nito.HashAlgorithms.CRC.dll",
+        "lib/net461/Nito.HashAlgorithms.CRC.xml",
+        "lib/netstandard1.3/Nito.HashAlgorithms.CRC.dll",
+        "lib/netstandard1.3/Nito.HashAlgorithms.CRC.xml",
+        "lib/netstandard2.0/Nito.HashAlgorithms.CRC.dll",
+        "lib/netstandard2.0/Nito.HashAlgorithms.CRC.xml",
+        "lib/netstandard2.1/Nito.HashAlgorithms.CRC.dll",
+        "lib/netstandard2.1/Nito.HashAlgorithms.CRC.xml",
+        "nito.hashalgorithms.crc.1.0.1.nupkg.sha512",
+        "nito.hashalgorithms.crc.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Nito.HashAlgorithms.CRC >= 1.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\ChristophWider\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\ChristophWider\\Documents\\GitHub\\Selmo-Sample-ErpCommCrcCheck\\src\\ERP\\AppCrcCheck\\AppCrcCheck.csproj",
+      "projectName": "AppCrcCheck",
+      "projectPath": "C:\\Users\\ChristophWider\\Documents\\GitHub\\Selmo-Sample-ErpCommCrcCheck\\src\\ERP\\AppCrcCheck\\AppCrcCheck.csproj",
+      "packagesPath": "C:\\Users\\ChristophWider\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ChristophWider\\Documents\\GitHub\\Selmo-Sample-ErpCommCrcCheck\\src\\ERP\\AppCrcCheck\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\ChristophWider\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/SelmoDev/Selmo/_packaging/Novus/nuget/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Nito.HashAlgorithms.CRC": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
