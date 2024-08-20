@@ -20,47 +20,7 @@ A Cyclic Redundancy Check (CRC) is a widely used method for detecting errors in 
 * If the two CRC values match, it indicates that the recipe data is intact and has not been corrupted during transmission.
 * If the CRC values do not match, it suggests that the data may have been altered or corrupted, and the recipe should be rejected or flagged for review.
 
-### Example of recomputing CRC on PLC Side
-```
-PROGRAM MAIN
-VAR
-	// ######## ERP DATA ##################
-	stRecipe_ERP		: MyRecipe;             	// The recipe data from the ERP system
-	dwCrc_ERP			: DWORD;			 		// CRC32 which is calculated and written by ERP system
-	
-	// ######## LOCAL #####################
-	byteArray			: ARRAY[0..255] OF BYTE;	// BYTE array to store the result
-	dwChecksum			: DWORD;					// CRC32 Result
-	dwCrc_ERP_cached	: DWORD;			 		// CRC32 which is calculated and written by ERP system
-	xCrcOK				: BOOL;						// Data is OK
-END_VAR
-```
-```
-// Wait for changes on ERP_CRC
-IF dwCrc_ERP <> dwCrc_ERP_cached THEN
-	dwCrc_ERP_cached := dwCrc_ERP;
-	xCrcOK := FALSE;
-	
-	// Copy STRUCT to BYTE array
-	MEMCPY(ADR(byteArray), ADR(stRecipe_ERP), SIZEOF(stRecipe_ERP));
-	
-	// CAlculate the CRC32
-	dwChecksum := CRC_GEN(
-		PT:= ADR (byteArray), 
-		SIZE:= UINT_TO_INT(SIZEOF(stRecipe_ERP)), 
-		PL:= 32, 
-		PN:= 16#04C11DB7, 
-		INIT:= 16#FFFFFFFF, 
-		REV_IN:= TRUE, 
-		REV_OUT:= TRUE, 
-		XOR_OUT:= 0);
 
-	// Check if CRC is OK
-	IF dwCrc_ERP = dwChecksum THEN
-		xCrcOK := TRUE;
-	END_IF
-END_IF
-```
 
 ### Example of computing CRC on ERP Side (.NET 8 sample program)
 ```
@@ -144,4 +104,66 @@ private static void Main(string[] args)
 	uint dwCrc_ERP = BitConverter.ToUInt32(crc, 0);
 	// TODO: plc.WriteAny(dwCrc_ERP);
 }
+```
+
+
+### Example of recomputing CRC on PLC Side
+```
+TYPE MyRecipe :
+STRUCT
+	iRecipeValue1 : INT := 123;
+	iRecipeValue8 : INT := 345;
+	
+    rRecipeValue2 : REAL := 234.5232;
+	rRecipeValue3 : REAL := 823764.326;
+	rRecipeValue4 : REAL := 2343463.346;
+	rRecipeValue5 : REAL := 6532.12;
+	rRecipeValue6 : REAL := 6.23;
+	rRecipeValue7 : REAL := 74.235;
+	
+    bRecipeFlag1 : BOOL := TRUE;
+	bRecipeFlag2 : BOOL := FALSE;
+END_STRUCT
+END_TYPE
+
+```
+```
+PROGRAM MAIN
+VAR
+	// ######## ERP DATA ##################
+	stRecipe_ERP		: MyRecipe;             	// The recipe data from the ERP system
+	dwCrc_ERP			: DWORD;			 		// CRC32 which is calculated and written by ERP system
+	
+	// ######## LOCAL #####################
+	byteArray			: ARRAY[0..255] OF BYTE;	// BYTE array to store the result
+	dwChecksum			: DWORD;					// CRC32 Result
+	dwCrc_ERP_cached	: DWORD;			 		// CRC32 which is calculated and written by ERP system
+	xCrcOK				: BOOL;						// Data is OK
+END_VAR
+```
+```
+// Wait for changes on ERP_CRC
+IF dwCrc_ERP <> dwCrc_ERP_cached THEN
+	dwCrc_ERP_cached := dwCrc_ERP;
+	xCrcOK := FALSE;
+	
+	// Copy STRUCT to BYTE array
+	MEMCPY(ADR(byteArray), ADR(stRecipe_ERP), SIZEOF(stRecipe_ERP));
+	
+	// CAlculate the CRC32
+	dwChecksum := CRC_GEN(
+		PT:= ADR (byteArray), 
+		SIZE:= UINT_TO_INT(SIZEOF(stRecipe_ERP)), 
+		PL:= 32, 
+		PN:= 16#04C11DB7, 
+		INIT:= 16#FFFFFFFF, 
+		REV_IN:= TRUE, 
+		REV_OUT:= TRUE, 
+		XOR_OUT:= 0);
+
+	// Check if CRC is OK
+	IF dwCrc_ERP = dwChecksum THEN
+		xCrcOK := TRUE;
+	END_IF
+END_IF
 ```

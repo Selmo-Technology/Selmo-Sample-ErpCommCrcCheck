@@ -53,10 +53,10 @@ internal class Program
     [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct MyRecipe
     {
-        [MarshalAs(UnmanagedType.R8)]
+        [MarshalAs(UnmanagedType.I2)]
         public short iRecipeValue1;
 
-        [MarshalAs(UnmanagedType.R4)]
+        [MarshalAs(UnmanagedType.I2)]
         public short iRecipeValue8;
 
         [MarshalAs(UnmanagedType.R4)]
