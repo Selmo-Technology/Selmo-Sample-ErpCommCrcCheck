@@ -114,14 +114,14 @@ STRUCT
 	iRecipeValue1 : INT := 123;
 	iRecipeValue8 : INT := 345;
 	
-    rRecipeValue2 : REAL := 234.5232;
+	rRecipeValue2 : REAL := 234.5232;
 	rRecipeValue3 : REAL := 823764.326;
 	rRecipeValue4 : REAL := 2343463.346;
 	rRecipeValue5 : REAL := 6532.12;
 	rRecipeValue6 : REAL := 6.23;
 	rRecipeValue7 : REAL := 74.235;
 	
-    bRecipeFlag1 : BOOL := TRUE;
+    	bRecipeFlag1 : BOOL := TRUE;
 	bRecipeFlag2 : BOOL := FALSE;
 END_STRUCT
 END_TYPE
