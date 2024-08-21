@@ -131,14 +131,14 @@ END_TYPE
 PROGRAM MAIN
 VAR
 	// ######## ERP DATA ##################
-	stRecipe_ERP		: MyRecipe;             	// The recipe data from the ERP system
-	dwCrc_ERP			: DWORD;			 		// CRC32 which is calculated and written by ERP system
+	stRecipe_ERP	: MyRecipe;             	// The recipe data from the ERP system
+	dwCrc_ERP	: DWORD;			// CRC32 which is calculated and written by ERP system
 	
 	// ######## LOCAL #####################
-	byteArray			: ARRAY[0..255] OF BYTE;	// BYTE array to store the result
-	dwChecksum			: DWORD;					// CRC32 Result
-	dwCrc_ERP_cached	: DWORD;			 		// CRC32 which is calculated and written by ERP system
-	xCrcOK				: BOOL;						// Data is OK
+	byteArray	: ARRAY[0..255] OF BYTE;	// BYTE array to store the result
+	dwChecksum	: DWORD;			// CRC32 Result
+	dwCrc_ERP_cached: DWORD;			// CRC32 which is calculated and written by ERP system
+	xCrcOK		: BOOL;				// Data is OK
 END_VAR
 ```
 ```
